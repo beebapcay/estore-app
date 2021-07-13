@@ -21,7 +21,7 @@
     "react/display-name": "off",
     "react/prop-types": "off",
     "prettier/prettier": "error",
-    "no-console":"error"
+    "no-console": "error"
   },
 
   "settings": {
