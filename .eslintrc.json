@@ -14,14 +14,13 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "indent": ["error", 2],
-    "quotes": ["error", "single"],
+    "indent": ["warn", 2],
+    "quotes": ["warn", "single"],
     "semi": ["error", "always"],
     "no-empty-function": "off",
     "react/display-name": "off",
     "react/prop-types": "off",
-    "prettier/prettier": "error",
-    "no-console":"error"
+    "prettier/prettier": "warn"
   },
 
   "settings": {
@@ -45,8 +44,7 @@
       "plugins": ["@typescript-eslint"],
       "rules": {
         "@typescript-eslint/no-empty-function": "off",
-        "@typescript-eslint/explicit-module-boundary-types": "off",
-        "no-console": "error"
+        "@typescript-eslint/explicit-module-boundary-types": "off"
       }
     }
   ]
