@@ -1,19 +1,18 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { NativeBaseProvider, Box, StatusBar } from 'native-base';
+import { NativeBaseProvider } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
+import { Routes, AppNavigator } from './navigations';
+import { StatusBar } from 'native-base';
 
-/**
- * Root component in project
- *
- * @returns JSXElement
- */
 const App = () => {
+  const isAuthorized = false;
+
   return (
     <NavigationContainer>
       <NativeBaseProvider>
         <StatusBar />
-        <Box>Hello World!!!</Box>
+        <AppNavigator initialRouteName={isAuthorized ? Routes.MAIN : Routes.AUTH} />
       </NativeBaseProvider>
     </NavigationContainer>
   );
