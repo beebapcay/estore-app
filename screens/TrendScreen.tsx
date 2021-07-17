@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box, Text } from 'native-base';
 
-const SearchScreen = () => {
+const TrendScreen = () => {
   return (
     <Box>
-      <Text>Search Screen</Text>
+      <Text>Trend Screen</Text>
     </Box>
   );
 };
 
-export default SearchScreen;
+export default TrendScreen;

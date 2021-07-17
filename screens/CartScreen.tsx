@@ -1,11 +1,12 @@
 import React from 'react';
 import { Box, Text } from 'native-base';
 
-const LoveScreen = () => {
+const CartScreen = () => {
   return (
     <Box>
-      <Text>Love Screen</Text>
+      <Text>Cart Screen</Text>
     </Box>
   );
 };
-export default LoveScreen;
+
+export default CartScreen;

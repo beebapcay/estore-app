@@ -1,10 +1,14 @@
-export enum Routes {
+enum Routes {
+  APP = 'App',
   MAIN = 'Main',
   AUTH = 'Auth',
   LOGIN = 'Login',
   REGISTER = 'Register',
   HOME = 'Home',
-  SEARCH = 'Search',
-  LOVE = 'Love',
-  ACCOUNT = 'Account'
+  TREND = 'Trend',
+  LOVED = 'Loved',
+  ACCOUNT = 'Account',
+  CART = 'Cart'
 }
+
+export default Routes;

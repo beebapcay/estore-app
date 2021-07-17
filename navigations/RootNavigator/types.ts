@@ -1,5 +1,6 @@
 import Routes from '../routes';
 
 export type AppParamList = {
-  [Routes.MAIN]: undefined;
+  [Routes.AUTH]: undefined;
+  [Routes.APP]: undefined;
 };

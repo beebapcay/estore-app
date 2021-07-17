@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes } from '../routes';
+import Routes from '../routes';
 import { createStackNavigator } from '@react-navigation/stack';
 import { LoginScreen, RegisterScreen } from '../../screens';
 import { AuthParamList } from './types';

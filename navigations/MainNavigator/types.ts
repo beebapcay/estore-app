@@ -1,8 +1,9 @@
-import { Routes } from '../routes';
+import Routes from '../routes';
 
 export type MainParamsList = {
   [Routes.HOME]: undefined;
-  [Routes.SEARCH]: undefined;
-  [Routes.LOVE]: undefined;
+  [Routes.TREND]: undefined;
+  [Routes.CART]: undefined;
+  [Routes.LOVED]: undefined;
   [Routes.ACCOUNT]: undefined;
 };
