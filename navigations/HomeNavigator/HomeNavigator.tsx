@@ -8,7 +8,7 @@ const Stack = createStackNavigator<HomeParamList>();
 
 const HomeNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name={Routes.HOME} component={HomeScreen} />
     </Stack.Navigator>
   );

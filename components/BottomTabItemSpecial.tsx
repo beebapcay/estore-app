@@ -16,7 +16,7 @@ const BottomTabItemSpecial = ({ iconSize, iconName, iconColor, bgColor, bgSize }
 
   return (
     <Pressable position="absolute" bottom="50%">
-      <Circle size={bgSizePx} bgColor={bgColor} shadow={5}>
+      <Circle size={bgSizePx} bgColor={bgColor} shadow={2}>
         <Icon as={Ionicons} name={iconName} color={iconColor} size={iconSizePx} />
       </Circle>
     </Pressable>
