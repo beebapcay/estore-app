@@ -13,7 +13,7 @@ import CartNavigator from '../CartNavigator/CartNavigator';
 const Tab = createBottomTabNavigator<MainParamsList>();
 
 const MainNavigator = () => {
-  const [inactiveTab, activeTab] = useToken('colors', ['inactiveTab', 'activeTab']);
+  const [brand, gray] = useToken('colors', ['brand', 'gray']);
 
   return (
     <Tab.Navigator
@@ -32,8 +32,8 @@ const MainNavigator = () => {
           elevation: 0,
           shadowOffset: { width: 0, height: 0 }
         },
-        inactiveTintColor: inactiveTab,
-        activeTintColor: activeTab
+        inactiveTintColor: gray['500'],
+        activeTintColor: brand['800']
       }}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {

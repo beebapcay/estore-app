@@ -4,7 +4,7 @@ import { NBSafeAreaView } from '../components';
 
 const CartScreen = () => {
   return (
-    <NBSafeAreaView flex={1}>
+    <NBSafeAreaView flex={1} bgColor="background">
       <Center flex={1}>
         <Text>Cart Screen</Text>
       </Center>

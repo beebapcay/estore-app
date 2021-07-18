@@ -4,7 +4,7 @@ import { NBSafeAreaView } from '../components';
 
 const HomeScreen = () => {
   return (
-    <NBSafeAreaView flex={1}>
+    <NBSafeAreaView flex={1} bgColor="background">
       <Center flex={1}>
         <Text>Home Screen</Text>
       </Center>
