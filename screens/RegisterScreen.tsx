@@ -1,11 +1,14 @@
 import React from 'react';
-import { Box, Text } from 'native-base';
+import { Center, Text } from 'native-base';
+import { NBSafeAreaView } from '../components';
 
 const RegisterScreen = () => {
   return (
-    <Box>
-      <Text>Register Screen</Text>
-    </Box>
+    <NBSafeAreaView flex={1}>
+      <Center flex={1}>
+        <Text>Register Screen</Text>
+      </Center>
+    </NBSafeAreaView>
   );
 };
 

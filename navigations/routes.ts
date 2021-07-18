@@ -5,9 +5,9 @@ enum Routes {
   LOGIN = 'Login',
   REGISTER = 'Register',
   HOME = 'Home',
-  TREND = 'Trend',
-  LOVED = 'Loved',
-  ACCOUNT = 'Account',
+  MOTIVATION = 'Motivation',
+  FAVOURITES = 'Favourites',
+  PROFILE = 'Profile',
   CART = 'Cart'
 }
 
