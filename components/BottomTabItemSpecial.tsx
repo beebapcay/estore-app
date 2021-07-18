@@ -8,14 +8,15 @@ interface Props {
   iconColor: string;
   bgColor: string;
   bgSize: number;
+  onClick?: any;
 }
 
-const BottomTabItemSpecial = ({ iconSize, iconName, iconColor, bgColor, bgSize }: Props) => {
+const BottomTabItemSpecial = ({ iconSize, iconName, iconColor, bgColor, bgSize, onClick }: Props) => {
   const iconSizePx = iconSize.toString() + 'px';
   const bgSizePx = bgSize.toString() + 'px';
 
   return (
-    <Pressable position="absolute" bottom="50%">
+    <Pressable position="absolute" bottom="35%" onPressIn={onClick}>
       <Circle size={bgSizePx} bgColor={bgColor} shadow={2}>
         <Icon as={Ionicons} name={iconName} color={iconColor} size={iconSizePx} />
       </Circle>

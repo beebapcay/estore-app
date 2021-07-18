@@ -1,5 +1,5 @@
 import React from 'react';
-import { Center, Icon } from 'native-base';
+import { Center, Icon, Pressable } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 
 interface Props {

@@ -35,7 +35,7 @@ const MainNavigator = () => {
         inactiveTintColor: gray['500'],
         activeTintColor: brand['800']
       }}
-      screenOptions={({ route }) => ({
+      screenOptions={({ navigation, route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName = '';
           let type = 'normal';
@@ -61,7 +61,14 @@ const MainNavigator = () => {
 
           if (type === 'special')
             return (
-              <BottomTabItemSpecial bgSize={55} iconName={iconName} iconSize={size} iconColor="white" bgColor="black" />
+              <BottomTabItemSpecial
+                bgSize={60}
+                iconName={iconName}
+                iconSize={size}
+                iconColor="white"
+                bgColor="black"
+                onClick={() => navigation.navigate(Routes.CART)}
+              />
             );
           return <BottomTabItemNormal iconSize={size} iconColor={color} iconName={iconName} />;
         }
