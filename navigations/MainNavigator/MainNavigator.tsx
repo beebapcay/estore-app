@@ -33,7 +33,8 @@ const MainNavigator = () => {
           shadowOffset: { width: 0, height: 0 }
         },
         inactiveTintColor: gray['500'],
-        activeTintColor: brand['800']
+        activeTintColor: brand['800'],
+        keyboardHidesTabBar: true
       }}
       screenOptions={({ navigation, route }) => ({
         tabBarIcon: ({ focused, color, size }) => {

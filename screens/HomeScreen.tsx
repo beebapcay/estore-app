@@ -1,12 +1,26 @@
 import React from 'react';
-import { Center, Text } from 'native-base';
+import { Box, Center, Input, KeyboardAvoidingView, Text } from 'native-base';
 import { NBSafeAreaView } from '../components';
+import { SearchBox } from '../components';
 
 const HomeScreen = () => {
   return (
     <NBSafeAreaView flex={1} bgColor="background">
       <Center flex={1}>
-        <Text>Home Screen</Text>
+        <Input placeholder="abc" />
+        <Input placeholder="abc" />
+        <Input placeholder="abc" />
+        <Input placeholder="abc" />
+        <Input placeholder="abc" />
+        <Input placeholder="abc" />
+        <Input placeholder="abc" />
+        <Input placeholder="abc" />
+        <Input placeholder="abc" />
+        <Input placeholder="abc" />
+        <Input placeholder="abc" />
+        <Input placeholder="abc" />
+        <Input placeholder="abc" />
+        <Input placeholder="abc" />
       </Center>
     </NBSafeAreaView>
   );

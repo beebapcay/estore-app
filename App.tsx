@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { extendTheme, NativeBaseProvider, StatusBar } from 'native-base';
+import { extendTheme, KeyboardAvoidingView, NativeBaseProvider, StatusBar } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
 import { Routes, RootNavigator } from './navigations';
 import { colors } from './theme';
@@ -22,6 +22,7 @@ const App = () => {
       <NavigationContainer>
         <NativeBaseProvider theme={theme}>
           <StatusBar barStyle="dark-content" backgroundColor={colors.background} />
+
           <RootNavigator initialRouteName={isAuthorized ? Routes.APP : Routes.AUTH} />
         </NativeBaseProvider>
       </NavigationContainer>
