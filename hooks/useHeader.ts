@@ -11,8 +11,14 @@ const useHeader = (title: string): StackNavigationOptions => {
       shadowColor: 'transparent',
       elevation: 0
     },
-    headerTintColor: colors.red['700'],
-    headerTitleAlign: 'center'
+    headerTintColor: colors.red['800'],
+    headerTitleAlign: 'center',
+    headerTitleContainerStyle: {
+      marginTop: 5
+    },
+    headerTitleStyle: {
+      fontSize: 21
+    }
   };
   return options;
 };

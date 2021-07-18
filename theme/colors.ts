@@ -4,7 +4,7 @@ const colors = {
     500: '#FA6400',
     800: '#cf4614'
   },
-  surface: '#ffffff'
+  heading: '#263248'
 };
 
 export default colors;
