@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 const SearchBox = (props: any) => {
   return (
-    <Box bgColor="white" borderRadius={15} {...props} paddingX={5} paddingY={0.8}>
+    <Box bgColor="white" borderRadius={15} {...props} paddingX={5} paddingY={0.5}>
       <HStack alignItems="center">
         <Input placeholder="Search here ..." border={0} flex={1} fontSize={18} />
         <IconButton

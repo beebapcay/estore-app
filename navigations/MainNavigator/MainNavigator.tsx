@@ -22,9 +22,9 @@ const MainNavigator = () => {
         showLabel: false,
         style: {
           backgroundColor: 'white',
-          position: 'absolute',
-          bottom: 15,
-          marginHorizontal: 20,
+          // position: 'absolute',
+          // bottom: 15,
+          // marginHorizontal: 20,
           height: 55,
           borderRadius: 10,
           borderTopWidth: 0,
