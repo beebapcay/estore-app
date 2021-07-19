@@ -1,9 +1,7 @@
 import Routes from '../routes';
+import { NavigatorScreenParams } from '@react-navigation/native';
+import { BottomParamsList } from '../BottomNavigator/types';
 
-export type MainParamsList = {
-  [Routes.HOME]: undefined;
-  [Routes.MOTIVATION]: undefined;
-  [Routes.CART]: undefined;
-  [Routes.FAVOURITES]: undefined;
-  [Routes.PROFILE]: undefined;
+export type MainParamList = {
+  [Routes.BOTTOM]: NavigatorScreenParams<BottomParamsList>;
 };

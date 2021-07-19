@@ -3,7 +3,7 @@ import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { extendTheme, NativeBaseProvider, StatusBar } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
-import { Routes, RootNavigator } from './src/navigations';
+import { Routes, AppNavigator } from './src/navigations';
 import { colors } from './src/theme';
 
 const theme = extendTheme({
@@ -22,7 +22,7 @@ const App = () => {
       <NavigationContainer>
         <NativeBaseProvider theme={theme}>
           <StatusBar barStyle="dark-content" backgroundColor={colors.background} />
-          <RootNavigator initialRouteName={isAuthorized ? Routes.APP : Routes.AUTH} />
+          <AppNavigator initialRouteName={isAuthorized ? Routes.MAIN : Routes.AUTH} />
         </NativeBaseProvider>
       </NavigationContainer>
     </SafeAreaProvider>

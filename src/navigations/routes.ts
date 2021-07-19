@@ -1,14 +1,15 @@
 enum Routes {
   APP = 'App',
-  MAIN = 'Main',
   AUTH = 'Auth',
+  MAIN = 'Main',
+  BOTTOM = 'Bottom',
   LOGIN = 'Login',
   REGISTER = 'Register',
   HOME = 'Home',
   MOTIVATION = 'Motivation',
+  CART = 'Cart',
   FAVOURITES = 'Favourites',
-  PROFILE = 'Profile',
-  CART = 'Cart'
+  PROFILE = 'Profile'
 }
 
 export default Routes;

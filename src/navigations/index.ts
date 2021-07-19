@@ -1,4 +1,4 @@
-import RootNavigator from './RootNavigator/RootNavigator';
+import AppNavigator from './AppNavigator/AppNavigator';
 import Routes from './routes';
 
-export { Routes, RootNavigator };
+export { Routes, AppNavigator };
