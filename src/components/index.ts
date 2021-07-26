@@ -4,7 +4,7 @@ import NBSafeAreaView from './NBSafeAreaView';
 import NBFocusAwareStatusBar from './FocusAwareStatusBar';
 import SearchBox from './SearchBox';
 import Header from './Header';
-import CategoryItem from './CategoryItem';
+import CategoryCard from './CategoryCard';
 
 export {
   BottomTabItemNormal,
@@ -13,5 +13,5 @@ export {
   NBFocusAwareStatusBar,
   SearchBox,
   Header,
-  CategoryItem
+  CategoryCard
 };

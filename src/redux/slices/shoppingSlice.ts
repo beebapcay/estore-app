@@ -6,7 +6,7 @@ const initialState: ShoppingState = {
   availability: {} as ProductAvailability
 };
 
-const fetchProductAvailability = createAsyncThunk('shopping/fetchProductAvailability', async () => {
+export const fetchProductAvailability = createAsyncThunk('shopping/fetchProductAvailability', async () => {
   const response = await sstoreApi.fetchProductAvailability();
   return response.data;
 });

@@ -1,21 +1,37 @@
 import React from 'react';
-import { HStack, IconButton, Input, Icon, Box, Factory } from 'native-base';
+import { HStack, IconButton, Input, Icon, Factory, Center } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 
-const SearchBox: React.FC = (props) => {
+interface Props {
+  onEndEditing?: any | undefined;
+  onTouch?: any | undefined;
+  autoFocus?: boolean | undefined;
+  onChangeText: Function;
+}
+
+const SearchBox: React.FC<Props> = ({ onEndEditing, onTouch, autoFocus, onChangeText, ...props }) => {
   return (
-    <Box bgColor="white" borderRadius={15} {...props} paddingX={5} paddingY={0.5}>
+    <Center {...props} bgColor="white" borderRadius={15} paddingX={5}>
       <HStack alignItems="center">
-        <Input placeholder="Search here ..." border={0} flex={1} fontSize={18} />
+        <Input
+          placeholder="Search here ..."
+          border={0}
+          flex={1}
+          fontSize={18}
+          onTouchStart={onTouch}
+          autoFocus={autoFocus}
+          onChangeText={(text) => onChangeText(text)}
+          onEndEditing={onEndEditing}
+        />
         <IconButton
           icon={<Icon as={Ionicons} name="search" color="white" size={5} />}
           bgColor="brand.800"
           borderRadius={999}
-          w={8}
-          h={8}
+          w="35px"
+          h="35px"
         />
       </HStack>
-    </Box>
+    </Center>
   );
 };
 
