@@ -1,10 +1,13 @@
 interface User {
-  _id: string;
+  id: string;
+  username: string;
+  password: string;
   firstName: string;
   lastName: string;
   address: string;
   email: string;
   phone: string;
+  avatar: string;
   token: string;
 }
 

@@ -1,5 +1,5 @@
 interface Product {
-  _id: string;
+  id: string;
   name: string;
   description: string;
   category: string;
@@ -7,7 +7,7 @@ interface Product {
   sales: number;
   price: number;
   motivations: string[];
-  images: string[];
+  image: string;
 }
 
 export default Product;
