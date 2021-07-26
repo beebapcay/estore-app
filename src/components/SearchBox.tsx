@@ -2,7 +2,7 @@ import React from 'react';
 import { HStack, IconButton, Input, Icon, Box, Factory } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 
-const SearchBox = (props: any) => {
+const SearchBox: React.FC = (props) => {
   return (
     <Box bgColor="white" borderRadius={15} {...props} paddingX={5} paddingY={0.5}>
       <HStack alignItems="center">

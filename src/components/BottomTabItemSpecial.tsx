@@ -11,7 +11,7 @@ interface Props {
   onClick?: any;
 }
 
-const BottomTabItemSpecial = ({ iconSize, iconName, iconColor, bgColor, bgSize, onClick }: Props) => {
+const BottomTabItemSpecial: React.FC<Props> = ({ iconSize, iconName, iconColor, bgColor, bgSize, onClick }) => {
   const iconSizePx = iconSize.toString() + 'px';
   const bgSizePx = bgSize.toString() + 'px';
 

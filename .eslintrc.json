@@ -21,7 +21,8 @@
     "no-empty-function": "off",
     "react/display-name": "off",
     "react/prop-types": "off",
-    "prettier/prettier": "warn"
+    "prettier/prettier": "warn",
+    "no-empty-pattern": "off"
   },
 
   "settings": {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Center, Factory, Text, Pressable } from 'native-base';
 
-const CategoryItem = (props: any) => {
+const CategoryItem: React.FC = ({ children }) => {
   const [selected, setSelected] = useState(false);
 
   const toggleSelected = () => setSelected(!selected);
@@ -15,7 +15,7 @@ const CategoryItem = (props: any) => {
       onPress={toggleSelected}
     >
       <Center>
-        <Text color={selected ? 'white' : 'gray.500'}>{props.children}</Text>
+        <Text color={selected ? 'white' : 'gray.500'}>{children}</Text>
       </Center>
     </Pressable>
   );

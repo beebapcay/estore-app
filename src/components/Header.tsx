@@ -1,10 +1,10 @@
 import React from 'react';
 import { Factory, Heading } from 'native-base';
 
-const Header = (props: any) => {
+const Header: React.FC = ({ children, ...props }) => {
   return (
     <Heading {...props} fontSize={22} color="heading" fontWeight={'bold'}>
-      {props.children}
+      {children}
     </Heading>
   );
 };
