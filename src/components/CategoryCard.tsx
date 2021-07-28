@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Center, Factory, Text, Pressable } from 'native-base';
 import { Category } from '../models';
 

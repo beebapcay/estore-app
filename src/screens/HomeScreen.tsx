@@ -3,7 +3,7 @@ import { Box, ScrollView, FlatList } from 'native-base';
 import { NBSafeAreaView } from '../components';
 import { SearchBox, Header, CategoryCard } from '../components';
 import { useAppDispatch } from '../hooks';
-import { fetchProductAvailability } from '../redux/slices';
+import { fetchProductAvailability, shoppingActions } from '../redux/slices';
 import { useAppSelector } from '../hooks';
 import { Category } from '../models';
 
@@ -11,7 +11,7 @@ const HomeScreen = () => {
   const { products, categories, motivations } = useAppSelector((state) => state.shopping.availability);
   const dispatch = useAppDispatch();
 
-  const [categorySelected, setCategorySelected] = useState<Category | undefined>(undefined);
+  const [categorySelected, setCategorySelected] = useState<Category>({} as Category);
 
   useEffect(() => {
     (async () => {
@@ -39,13 +39,10 @@ const HomeScreen = () => {
                 item={item}
                 onTouch={(item: Category) => setCategorySelected(item)}
                 marginX={2}
-                selected={item.id === categorySelected?.id}
+                selected={item.id === categorySelected.id}
               />
             )}
-            keyExtractor={(item: Category) => {
-              console.log(item.id);
-              return item.id;
-            }}
+            keyExtractor={(item: Category) => item.title}
           />
         </ScrollView>
       </Box>
