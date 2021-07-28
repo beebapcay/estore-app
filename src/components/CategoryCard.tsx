@@ -13,7 +13,7 @@ const CategoryCard: React.FC<Props> = ({ item, onTouch, selected, ...props }) =>
     <Pressable
       paddingX={7}
       paddingY={1.5}
-      bgColor={selected ? 'brand.500' : 'gray.200'}
+      bgColor={selected ? 'brand.800' : 'gray.200'}
       borderRadius={15}
       onPress={() => {
         onTouch(item);
