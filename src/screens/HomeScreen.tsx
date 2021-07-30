@@ -19,8 +19,11 @@ const HomeScreen = () => {
 
   const [searchKeyword, setSearchKeyword] = useState('');
   useEffect(() => {
+    let filterList;
+    if (category?.title === 'All') filterList = products;
+    else filterList = products?.filter((item) => item?.category === category?.title);
     setFilterProducts(
-      products?.filter((item) => item?.name.includes(searchKeyword) || item?.category.includes(searchKeyword))
+      filterList?.filter((item) => item?.name.includes(searchKeyword) || item?.category.includes(searchKeyword))
     );
   }, [searchKeyword]);
 
