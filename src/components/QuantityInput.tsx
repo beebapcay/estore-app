@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HStack, Icon, Text, IconButton, Input } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 import { StyleProp, ViewStyle } from 'react-native';
@@ -14,6 +14,9 @@ interface Props {
 
 const QuantityInput: React.FC<Props> = ({ start = 0, step = 1, min = 0, max = 100, onChange, style }) => {
   const [quantity, setQuantity] = useState(start);
+  useEffect(() => {
+    onChange(quantity);
+  }, [quantity]);
 
   const onIncrease = () => {
     if (quantity < max) setQuantity(quantity + step);
@@ -42,7 +45,6 @@ const QuantityInput: React.FC<Props> = ({ start = 0, step = 1, min = 0, max = 10
         isReadOnly
         marginX={6}
         value={quantity.toString()}
-        onChangeText={(text) => onChange(parseInt(text))}
       />
       <IconButton
         borderRadius={999}

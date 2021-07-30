@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Center, Text, IconButton, Box, ScrollView, Icon, Image, HStack, Button, Heading } from 'native-base';
 import { useAppSelector } from '../hooks';
 import { useRoute, useNavigation } from '@react-navigation/native';
@@ -13,6 +13,8 @@ const ProductScreen = () => {
   const product = products.find((item) => item.id === route.params.productId);
 
   const navigation = useNavigation();
+
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <Box flex={1} bgColor="background">
@@ -70,11 +72,11 @@ const ProductScreen = () => {
           </Box>
 
           <HStack justifyContent="space-between" marginTop={0.5} marginX={2.5} alignItems="center">
-            <QuantityInput onChange={() => {}} start={1} min={0} max={10} />
+            <QuantityInput onChange={(quantity: number) => setQuantity(quantity)} start={quantity} min={0} max={10} />
 
             <Center bgColor="brand.800" paddingY={2} borderRadius={999} w="45%">
               <Text color="white" fontSize={20} bold isTruncated>
-                ${product?.price}
+                ${product?.price ? product.price * quantity : 0}
               </Text>
             </Center>
           </HStack>
