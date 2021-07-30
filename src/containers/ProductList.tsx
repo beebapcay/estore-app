@@ -23,7 +23,7 @@ const ProductList: React.FC<Props> = ({ itemList, onTouchItem, style }) => {
       )}
       keyExtractor={(item: Product, index) => `${item.id} ${index}`}
       ListEmptyComponent={
-        <Heading fontSize={18} color="#6E6D7A" textAlign="center" bold marginTop="80px">
+        <Heading fontSize={18} color="gray.500" textAlign="center" bold marginTop="80px">
           No Products Found
         </Heading>
       }

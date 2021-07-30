@@ -6,7 +6,6 @@ import CategoryCard from './CategoryCard';
 import VirtualizedList from './VirtualizedList';
 import ProductCard from './ProductCard';
 import QuantityInput from './QuantityInput';
-import ActionButton from './ActionButton';
 
 export {
   BottomTabItemNormal,
@@ -16,6 +15,5 @@ export {
   CategoryCard,
   VirtualizedList,
   ProductCard,
-  QuantityInput,
-  ActionButton
+  QuantityInput
 };

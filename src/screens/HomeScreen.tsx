@@ -36,7 +36,6 @@ const HomeScreen = () => {
   useEffect(() => {
     (async () => {
       const result = await dispatch(fetchProductAvailability());
-      console.log(products);
       if (fetchProductAvailability.fulfilled.match(result)) {
         const categories = result.payload?.categories;
         const products = result.payload?.products;

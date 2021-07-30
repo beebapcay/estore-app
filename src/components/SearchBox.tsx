@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { HStack, IconButton, Input, Icon, Center } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle, Keyboard } from 'react-native';
 
 interface Props {
   onEndEditing?: any | undefined;
@@ -32,7 +32,10 @@ const SearchBox: React.FC<Props> = ({ onEndEditing, onTouch, autoFocus, onChange
           icon={<Icon as={Ionicons} name="search" color="white" size={5} />}
           bgColor="brand.800"
           borderRadius={999}
-          onPress={() => onChange(keyword)}
+          onPress={() => {
+            onChange(keyword);
+          }}
+          onPressIn={Keyboard.dismiss}
           w="35px"
           h="35px"
         />

@@ -24,7 +24,7 @@ const App = () => {
     <Provider store={store}>
       <NavigationContainer>
         <NativeBaseProvider theme={theme}>
-          <StatusBar style="dark" backgroundColor="transparent" translucent />
+          <StatusBar style="dark" backgroundColor={colors.background} translucent={false} />
           <AppNavigator initialRouteName={isAuthorized ? Routes.MAIN : Routes.AUTH} />
         </NativeBaseProvider>
       </NavigationContainer>
