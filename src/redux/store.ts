@@ -3,8 +3,8 @@ import { shoppingReducer, userReducer } from './slices';
 
 export const store = configureStore({
   reducer: {
-    shopping: shoppingReducer,
-    user: userReducer
+    shoppingState: shoppingReducer,
+    userState: userReducer
   }
 });
 

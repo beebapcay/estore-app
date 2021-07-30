@@ -1,13 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { UserState, User } from '../../models';
+import { UserState, User, Cart } from '../../models';
 
 const initialState: UserState = {
-  user: {} as User,
+  userData: {} as User,
+  cart: {} as Cart,
   error: undefined
 };
 
 const userSlice = createSlice({
-  name: 'user',
+  name: 'userState',
   initialState,
   reducers: {}
 });

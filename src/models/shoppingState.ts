@@ -1,8 +1,8 @@
-import Category from './category';
-import ProductAvailability from './productAvailability';
+import Shopping from './shopping';
 
 interface ShoppingState {
-  availability: ProductAvailability;
+  shoppingData: Shopping;
+  error: string | undefined;
 }
 
 export default ShoppingState;

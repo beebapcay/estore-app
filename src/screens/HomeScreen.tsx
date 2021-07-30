@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Heading, Spinner } from 'native-base';
 import { SearchBox, VirtualizedList } from '../components';
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { fetchProductAvailability } from '../redux/slices';
+import { fetchShoppingData } from '../redux/slices';
 import { Category, Product } from '../models';
 import Routes from '../navigations/routes';
 import { useNavigation } from '@react-navigation/native';
@@ -11,7 +11,7 @@ import { CategoryList, ProductList } from '../containers';
 const HomeScreen = () => {
   const dispatch = useAppDispatch();
 
-  const { categories, products } = useAppSelector((state) => state.shopping.availability);
+  const { categories, products } = useAppSelector((state) => state.shoppingState?.shoppingData);
 
   const [filterProducts, setFilterProducts] = useState<Product[]>([]);
 
@@ -35,8 +35,8 @@ const HomeScreen = () => {
 
   useEffect(() => {
     (async () => {
-      const result = await dispatch(fetchProductAvailability());
-      if (fetchProductAvailability.fulfilled.match(result)) {
+      const result = await dispatch(fetchShoppingData());
+      if (fetchShoppingData.fulfilled.match(result)) {
         const categories = result.payload?.categories;
         const products = result.payload?.products;
 

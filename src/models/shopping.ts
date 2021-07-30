@@ -2,10 +2,10 @@ import Category from './category';
 import Motivation from './motivation';
 import Product from './product';
 
-interface ProductAvailability {
+interface Shopping {
   categories: Category[];
   products: Product[];
   motivations: Motivation[];
 }
 
-export default ProductAvailability;
+export default Shopping;

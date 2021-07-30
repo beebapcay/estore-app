@@ -9,7 +9,7 @@ import { QuantityInput } from '../components';
 
 const ProductScreen = () => {
   const route = useRoute<ProductScreenRouteProp>();
-  const products = useAppSelector((state) => state.shopping.availability.products);
+  const products = useAppSelector((state) => state.shoppingState.shoppingData.products);
   const product = products.find((item) => item.id === route.params.productId);
 
   const navigation = useNavigation();

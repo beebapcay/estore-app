@@ -1,23 +1,24 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { ShoppingState, ProductAvailability } from '../../models';
+import { ShoppingState, Shopping } from '../../models';
 import { sstoreApi } from '../../api';
 
 const initialState: ShoppingState = {
-  availability: {} as ProductAvailability
+  shoppingData: {} as Shopping,
+  error: undefined
 };
 
-export const fetchProductAvailability = createAsyncThunk('shopping/fetchProductAvailability', async () => {
-  const response = await sstoreApi.fetchProductAvailability();
+export const fetchShoppingData = createAsyncThunk('shoppingState/fetchShoppingData', async () => {
+  const response = await sstoreApi.fetchShoppingData();
   return response.data;
 });
 
 const shoppingSlice = createSlice({
-  name: 'shopping',
+  name: 'shoppingState',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchProductAvailability.fulfilled, (state, actions) => {
-      state.availability = actions.payload;
+    builder.addCase(fetchShoppingData.fulfilled, (state, actions) => {
+      state.shoppingData = actions.payload;
     });
   }
 });

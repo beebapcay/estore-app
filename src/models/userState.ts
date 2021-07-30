@@ -2,7 +2,7 @@ import User from './user';
 import Cart from './cart';
 
 interface UserState {
-  user: User;
+  userData: User;
   cart: Cart;
   error: string | undefined;
 }
