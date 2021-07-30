@@ -1,68 +1,60 @@
 import React, { useEffect, useState } from 'react';
-import { Box, ScrollView, FlatList } from 'native-base';
-import { NBSafeAreaView } from '../components';
-import { SearchBox, Header, CategoryCard } from '../components';
-import { useAppDispatch } from '../hooks';
-import { fetchProductAvailability, shoppingActions } from '../redux/slices';
-import { useAppSelector } from '../hooks';
+import { Box, Factory, ScrollView, FlatList, Text, Heading } from 'native-base';
+import { SearchBox, VirtualizedList } from '../components';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { fetchProductAvailability } from '../redux/slices';
 import { Category, Product } from '../models';
-import ProductCard from '../components/ProductCard';
-import { justifyContent, width } from 'styled-system';
-import { LogBox } from 'react-native';
+import Routes from '../navigations/routes';
+import { useNavigation } from '@react-navigation/native';
+import { CategoryList, ProductList } from '../containers';
 
 const HomeScreen = () => {
-  const { products, categories } = useAppSelector((state) => state.shopping.availability);
   const dispatch = useAppDispatch();
+  const { products, categories } = useAppSelector((state) => state.shopping.availability);
 
-  const [categorySelected, setCategorySelected] = useState<Category>({} as Category);
+  const navigation = useNavigation();
+
+  const [category, setCategory] = useState<Category>({} as Category);
 
   useEffect(() => {
-    // LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
     (async () => {
       const result = await dispatch(fetchProductAvailability());
       if (fetchProductAvailability.fulfilled.match(result)) {
         const categories = result.payload?.categories;
-        if (categories.length) setCategorySelected(categories[0]);
+        if (categories.length) setCategory(categories[0]);
       }
     })();
   }, []);
 
   return (
-    <NBSafeAreaView flex={1} bgColor="background">
-      <Box flex={1} paddingX="5%">
-        <SearchBox marginTop={2} w="100%" h="55px" onTouch={() => alert('touch')} onChangeText={() => {}} />
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <Header marginTop={5}>Categories</Header>
-          <FlatList
-            marginTop={5}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={categories}
-            renderItem={({ item }: { item: Category }) => (
-              <CategoryCard
-                item={item}
-                onTouch={(item: Category) => setCategorySelected(item)}
-                marginX={2}
-                selected={item.id === categorySelected.id}
-              />
-            )}
-            keyExtractor={(item: Category) => item.id}
-          />
+    <Box flex={1} paddingX="5%" bgColor="background">
+      <SearchBox style={{ marginTop: 15, width: '100%', height: 55 }} onTouch={() => {}} onChange={() => {}} />
+      <VirtualizedList showScrollIndicator={false} style={{ marginTop: 25 }}>
+        <Heading fontSize={20} color="heading" bold>
+          Category
+        </Heading>
+        <CategoryList
+          itemList={categories}
+          onTouchItem={(item: Category) => setCategory(item)}
+          itemSelected={category}
+          style={{ marginTop: 15 }}
+        />
+        <ProductList
+          itemList={products}
+          onTouchItem={(item: Product) => navigation.navigate(Routes.PRODUCT, { productId: item.id })}
+          style={{ marginTop: 20 }}
+        />
+      </VirtualizedList>
 
-          <FlatList
-            marginTop={8}
-            showsVerticalScrollIndicator={false}
-            data={products}
-            numColumns={2}
-            columnWrapperStyle={{ justifyContent: 'space-between' }}
-            renderItem={({ item }: { item: Product }) => (
-              <ProductCard item={item} onTouch={(item: Product) => {}} w="50%" padding={1.5} marginBottom={5} />
-            )}
-            keyExtractor={(item: Product) => item.id}
+      {/* <ScrollView showsVerticalScrollIndicator={false}>
+          <Header marginTop={5} title="Categories" />
+          <CategoryList marginTop={5} onTouch={(item: Category) => setCategory(item)} itemSelected={category} />
+          <ProductList
+            marginTop={5}
+            onTouch={(item: Product) => navigation.navigate(Routes.PRODUCT, { productId: item.id })}
           />
-        </ScrollView>
-      </Box>
-    </NBSafeAreaView>
+        </ScrollView> */}
+    </Box>
   );
 };
 

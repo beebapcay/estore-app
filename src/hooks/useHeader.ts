@@ -17,7 +17,7 @@ const useHeader = (title: string): StackNavigationOptions => {
       marginTop: 5
     },
     headerTitleStyle: {
-      fontSize: 21
+      fontSize: 20
     }
   };
   return options;

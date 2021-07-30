@@ -1,17 +1,19 @@
 import React from 'react';
-import { HStack, IconButton, Input, Icon, Factory, Center } from 'native-base';
+import { HStack, IconButton, Input, Icon, Center } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
+import { StyleProp, ViewStyle } from 'react-native';
 
 interface Props {
   onEndEditing?: any | undefined;
   onTouch?: any | undefined;
   autoFocus?: boolean | undefined;
-  onChangeText: Function;
+  onChange: Function;
+  style?: StyleProp<ViewStyle>;
 }
 
-const SearchBox: React.FC<Props> = ({ onEndEditing, onTouch, autoFocus, onChangeText, ...props }) => {
+const SearchBox: React.FC<Props> = ({ onEndEditing, onTouch, autoFocus, onChange, style }) => {
   return (
-    <Center {...props} bgColor="white" borderRadius={15} paddingX={5}>
+    <Center bgColor="white" borderRadius={15} paddingX={5} style={style}>
       <HStack alignItems="center">
         <Input
           placeholder="Search here ..."
@@ -20,7 +22,7 @@ const SearchBox: React.FC<Props> = ({ onEndEditing, onTouch, autoFocus, onChange
           fontSize={18}
           onTouchStart={onTouch}
           autoFocus={autoFocus}
-          onChangeText={(text) => onChangeText(text)}
+          onChangeText={(text) => onChange(text)}
           onEndEditing={onEndEditing}
         />
         <IconButton
@@ -35,4 +37,4 @@ const SearchBox: React.FC<Props> = ({ onEndEditing, onTouch, autoFocus, onChange
   );
 };
 
-export default Factory(SearchBox);
+export default SearchBox;

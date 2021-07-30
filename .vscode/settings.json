@@ -1,4 +1,14 @@
 {
   "cSpell.enabled": true,
-  "cSpell.words": ["Duong", "Favourites", "Ionicons", "Pressable", "merriweather", "navigations", "reduxjs", "sstore"]
+  "cSpell.words": [
+    "Duong",
+    "Favourites",
+    "Ionicons",
+    "Pressable",
+    "ellipsize",
+    "merriweather",
+    "navigations",
+    "reduxjs",
+    "sstore"
+  ]
 }

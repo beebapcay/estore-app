@@ -1,12 +1,13 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { extendTheme, NativeBaseProvider, StatusBar } from 'native-base';
+import { extendTheme, NativeBaseProvider } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
-import { Routes, AppNavigator } from './src/navigations';
+import Routes from './src/navigations/routes';
+import { AppNavigator } from './src/navigations';
 import { colors } from './src/theme';
 import { Provider } from 'react-redux';
 import { store } from './src/redux';
+import { StatusBar } from 'expo-status-bar';
 
 const theme = extendTheme({
   colors: colors,
@@ -21,14 +22,12 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <NativeBaseProvider theme={theme}>
-            <StatusBar barStyle="dark-content" backgroundColor={colors.background} />
-            <AppNavigator initialRouteName={isAuthorized ? Routes.MAIN : Routes.AUTH} />
-          </NativeBaseProvider>
-        </NavigationContainer>
-      </SafeAreaProvider>
+      <NavigationContainer>
+        <NativeBaseProvider theme={theme}>
+          <StatusBar style="dark" backgroundColor="transparent" translucent />
+          <AppNavigator initialRouteName={isAuthorized ? Routes.MAIN : Routes.AUTH} />
+        </NativeBaseProvider>
+      </NavigationContainer>
     </Provider>
   );
 };

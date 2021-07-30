@@ -5,5 +5,15 @@ import MotivationScreen from './MotivationScreen';
 import FavouritesScreen from './FavouritesScreen';
 import ProfileScreen from './ProfileScreen';
 import CartScreen from './CartScreen';
+import ProductScreen from './ProductScreen';
 
-export { LoginScreen, RegisterScreen, HomeScreen, MotivationScreen, FavouritesScreen, ProfileScreen, CartScreen };
+export {
+  LoginScreen,
+  RegisterScreen,
+  HomeScreen,
+  MotivationScreen,
+  FavouritesScreen,
+  ProfileScreen,
+  CartScreen,
+  ProductScreen
+};

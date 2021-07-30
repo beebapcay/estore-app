@@ -38,7 +38,7 @@ const BottomNavigator = () => {
         activeTintColor: brand['800'],
         keyboardHidesTabBar: true
       }}
-      screenOptions={({ navigation, route }) => ({
+      screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName = '';
           let type = 'normal';
@@ -70,10 +70,12 @@ const BottomNavigator = () => {
                 iconSize={size}
                 iconColor="white"
                 bgColor="black"
-                onClick={() => navigation.navigate(Routes.CART)}
+                routeDestination={route.name}
               />
             );
-          return <BottomTabItemNormal iconSize={size} iconColor={color} iconName={iconName} />;
+          return (
+            <BottomTabItemNormal iconSize={size} iconColor={color} iconName={iconName} routeDestination={route.name} />
+          );
         }
       })}
     >
