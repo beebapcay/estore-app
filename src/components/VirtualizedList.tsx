@@ -10,9 +10,11 @@ interface Props {
 const VirtualizedList: React.FC<Props> = ({ children, showScrollIndicator = true, style }) => {
   return (
     <FlatList
+      contentContainerStyle={{ flexGrow: 1 }}
       showsVerticalScrollIndicator={showScrollIndicator}
       data={[]}
       renderItem={null}
+      keyExtractor={(item, index) => `${index}`}
       ListEmptyComponent={<>{children}</>}
       style={style}
     />

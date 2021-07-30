@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList } from 'native-base';
+import { FlatList, Box, Heading } from 'native-base';
 import { Product } from '../models';
 import { ProductCard } from '../components';
 import { StyleProp, ViewStyle } from 'react-native';
@@ -21,7 +21,12 @@ const ProductList: React.FC<Props> = ({ itemList, onTouchItem, style }) => {
       renderItem={({ item }: { item: Product }) => (
         <ProductCard item={item} onTouch={onTouchItem} style={{ width: '50%', padding: 5, marginBottom: 20 }} />
       )}
-      keyExtractor={(item: Product) => item.id}
+      keyExtractor={(item: Product, index) => `${item.id} ${index}`}
+      ListEmptyComponent={
+        <Heading fontSize={18} color="#6E6D7A" textAlign="center" bold marginTop="80px">
+          No Products Found
+        </Heading>
+      }
       style={style}
     />
   );

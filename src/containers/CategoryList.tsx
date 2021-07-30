@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList } from 'native-base';
+import { FlatList, Text } from 'native-base';
 import { Category } from '../models';
 import { CategoryCard } from '../components';
 import { StyleProp, ViewStyle } from 'react-native';
@@ -14,9 +14,6 @@ interface Props {
 const CategoryList: React.FC<Props> = ({ itemList, onTouchItem, itemSelected, style }) => {
   return (
     <FlatList
-      maintainVisibleContentPosition={{
-        minIndexForVisible: 0
-      }}
       horizontal
       showsHorizontalScrollIndicator={false}
       data={itemList}
@@ -28,7 +25,9 @@ const CategoryList: React.FC<Props> = ({ itemList, onTouchItem, itemSelected, st
           isSelected={item?.id === itemSelected?.id}
         />
       )}
-      keyExtractor={(item: Category) => item.id}
+      keyExtractor={(item: Category, index) => {
+        return `${item.id} ${index}`;
+      }}
       style={style}
     />
   );

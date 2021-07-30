@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HStack, IconButton, Input, Icon, Center } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 import { StyleProp, ViewStyle } from 'react-native';
@@ -12,6 +12,8 @@ interface Props {
 }
 
 const SearchBox: React.FC<Props> = ({ onEndEditing, onTouch, autoFocus, onChange, style }) => {
+  const [keyword, setKeyword] = useState('');
+
   return (
     <Center bgColor="white" borderRadius={15} paddingX={5} style={style}>
       <HStack alignItems="center">
@@ -22,13 +24,15 @@ const SearchBox: React.FC<Props> = ({ onEndEditing, onTouch, autoFocus, onChange
           fontSize={18}
           onTouchStart={onTouch}
           autoFocus={autoFocus}
-          onChangeText={(text) => onChange(text)}
+          value={keyword}
+          onChangeText={setKeyword}
           onEndEditing={onEndEditing}
         />
         <IconButton
           icon={<Icon as={Ionicons} name="search" color="white" size={5} />}
           bgColor="brand.800"
           borderRadius={999}
+          onPress={() => onChange(keyword)}
           w="35px"
           h="35px"
         />

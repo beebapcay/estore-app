@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ShoppingState, ProductAvailability, Category } from '../../models';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { ShoppingState, ProductAvailability } from '../../models';
 import { sstoreApi } from '../../api';
 
 const initialState: ShoppingState = {
