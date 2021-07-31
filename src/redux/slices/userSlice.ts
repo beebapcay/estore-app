@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const initialState: UserState = {
   userData: {} as User,
-  cart: { items: [], subTotalCost: 0, shipCost: 2.5, totalCost: 0 } as Cart,
+  cart: {} as Cart,
   error: undefined
 };
 
@@ -15,9 +15,9 @@ export const loadCartData = createAsyncThunk('userState/loadCartData', async () 
       const cart = JSON.parse(cartStr) as Cart;
       return cart;
     }
-    return { items: [], subTotalCost: 0, shipCost: 0, totalCost: 0 } as Cart;
+    return { items: [], subTotalCost: 0, shipCost: 2.5, totalCost: 0 } as Cart;
   } catch (error) {
-    return { items: [], subTotalCost: 0, shipCost: 0, totalCost: 0 } as Cart;
+    return { items: [], subTotalCost: 0, shipCost: 2.5, totalCost: 0 } as Cart;
     console.log('Loading Cart Error');
   }
 });
@@ -31,7 +31,9 @@ const userSlice = createSlice({
       const existingProduct = state.cart.items.find((item) => item.id === product.id);
       if (existingProduct) {
         state.cart.items = state.cart.items.map((item) =>
-          item.id === product.id ? { ...product, quantity: item.quantity + quantity } : item
+          item.id === product.id
+            ? { ...product, quantity: item.quantity + quantity > 10 ? 10 : item.quantity + quantity }
+            : item
         );
         state.cart.items = state.cart.items.filter((item) => item.quantity > 0);
       } else {
@@ -44,7 +46,7 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(loadCartData.fulfilled, (state, action) => {
       state.cart = action.payload;
-      console.log(state.cart);
+      console.log(action.payload);
     });
   }
 });

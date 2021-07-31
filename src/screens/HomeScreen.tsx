@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Heading, Spinner } from 'native-base';
+import { Box, Heading, Spinner, Center } from 'native-base';
 import { SearchBox, VirtualizedList } from '../components';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { fetchShoppingData } from '../redux/slices';
@@ -8,11 +8,13 @@ import Routes from '../navigations/routes';
 import { useNavigation } from '@react-navigation/native';
 import { CategoryList, ProductList } from '../containers';
 import { loadCartData } from '../redux/slices/userSlice';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const HomeScreen = () => {
   const dispatch = useAppDispatch();
 
   const { categories, products } = useAppSelector((state) => state.shoppingState?.shoppingData);
+  const cart = useAppSelector((state) => state.userState.cart);
 
   const [filterProducts, setFilterProducts] = useState<Product[]>([]);
 
@@ -46,6 +48,7 @@ const HomeScreen = () => {
         setFilterProducts(products);
       }
 
+      // await AsyncStorage.clear();
       await dispatch(loadCartData());
     })();
   }, []);
@@ -53,34 +56,34 @@ const HomeScreen = () => {
   return (
     <Box flex={1} paddingX="5%" bgColor="background">
       <SearchBox style={{ marginTop: 15, width: '100%', height: 55 }} onTouch={() => {}} onChange={setSearchKeyword} />
-      <VirtualizedList showScrollIndicator={false} style={{ marginTop: 25 }}>
-        <Box flex={1}>
-          {!products && !categories ? (
-            <Box flex={1} justifyContent="center">
-              <Spinner accessibilityLabel="Loading" color="#cf4614" size={50} />
-            </Box>
-          ) : (
-            <Box>
-              <Heading fontSize={20} color="heading">
-                Category
-              </Heading>
+      <Box marginTop="25px" flex={1}>
+        {!products && !categories ? (
+          <Center flex={1}>
+            <Spinner accessibilityLabel="Loading" color="#cf4614" size={50} />
+          </Center>
+        ) : (
+          <Box flex={1}>
+            <ProductList
+              itemList={filterProducts}
+              onTouchItem={(item: Product) => navigation.navigate(Routes.PRODUCT, { productId: item.id })}
+              header={
+                <Box marginBottom={6}>
+                  <Heading fontSize={20} color="heading">
+                    Category
+                  </Heading>
 
-              <CategoryList
-                itemList={categories}
-                onTouchItem={(item: Category) => setCategory(item)}
-                itemSelected={category}
-                style={{ marginTop: 15 }}
-              />
-
-              <ProductList
-                itemList={filterProducts}
-                onTouchItem={(item: Product) => navigation.navigate(Routes.PRODUCT, { productId: item.id })}
-                style={{ marginTop: 25, flex: 99 }}
-              />
-            </Box>
-          )}
-        </Box>
-      </VirtualizedList>
+                  <CategoryList
+                    itemList={categories}
+                    onTouchItem={(item: Category) => setCategory(item)}
+                    itemSelected={category}
+                    style={{ marginTop: 15 }}
+                  />
+                </Box>
+              }
+            />
+          </Box>
+        )}
+      </Box>
     </Box>
   );
 };

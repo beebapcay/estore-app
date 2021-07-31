@@ -8,10 +8,12 @@ interface Props {
   itemList: Category[];
   onTouchItem: Function;
   itemSelected: Category;
+  header?: JSX.Element;
+  footer?: JSX.Element;
   style?: StyleProp<ViewStyle>;
 }
 
-const CategoryList: React.FC<Props> = ({ itemList, onTouchItem, itemSelected, style }) => {
+const CategoryList: React.FC<Props> = ({ itemList, onTouchItem, itemSelected, header, footer, style }) => {
   return (
     <FlatList
       horizontal
@@ -28,6 +30,8 @@ const CategoryList: React.FC<Props> = ({ itemList, onTouchItem, itemSelected, st
       keyExtractor={(item: Category, index) => {
         return `${item.id} ${index}`;
       }}
+      istHeaderComponent={header}
+      ListFooterComponent={footer}
       style={style}
     />
   );

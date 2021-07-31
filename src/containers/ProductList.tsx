@@ -7,10 +7,12 @@ import { StyleProp, ViewStyle } from 'react-native';
 interface Props {
   itemList: Product[];
   onTouchItem: Function;
+  header?: JSX.Element;
+  footer?: JSX.Element;
   style?: StyleProp<ViewStyle>;
 }
 
-const ProductList: React.FC<Props> = ({ itemList, onTouchItem, style }) => {
+const ProductList: React.FC<Props> = ({ itemList, onTouchItem, header, footer, style }) => {
   return (
     <FlatList
       nestedScrollEnabled
@@ -23,10 +25,12 @@ const ProductList: React.FC<Props> = ({ itemList, onTouchItem, style }) => {
       )}
       keyExtractor={(item: Product, index) => `${item.id} ${index}`}
       ListEmptyComponent={
-        <Heading fontSize={18} color="gray.500" textAlign="center" bold marginTop="80px">
+        <Heading fontSize={18} color="gray.500" textAlign="center" bold marginTop="50%">
           No Products Found
         </Heading>
       }
+      ListHeaderComponent={header}
+      ListFooterComponent={footer}
       style={style}
     />
   );

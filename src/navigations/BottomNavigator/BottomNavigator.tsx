@@ -74,7 +74,7 @@ const BottomNavigator = () => {
                 iconColor="white"
                 bgColor="black"
                 routeDestination={route.name}
-                badgeNumber={cart.items.length}
+                badgeNumber={cart?.items?.length}
               />
             );
           return (

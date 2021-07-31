@@ -22,7 +22,6 @@ import { QuantityInput } from '../components';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { userActions } from '../redux/slices';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { backgroundColor } from 'styled-system';
 
 const ProductScreen = () => {
   const route = useRoute<ProductScreenRouteProp>();
@@ -35,7 +34,6 @@ const ProductScreen = () => {
     (async () => {
       try {
         await AsyncStorage.setItem('@cart', JSON.stringify(cart));
-        console.log(cart);
       } catch (error) {
         console.log('Save Cart Error');
       }

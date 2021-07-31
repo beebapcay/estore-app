@@ -3,6 +3,7 @@ import { Icon, Circle, Pressable, Badge } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { StyleProp, ViewStyle } from 'react-native';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 
 interface Props {
   iconSize: number;
