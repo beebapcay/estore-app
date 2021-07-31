@@ -9,11 +9,14 @@ import { BottomParamsList } from './types';
 import { BottomTabItemNormal, BottomTabItemSpecial } from '../../components';
 import { useToken } from 'native-base';
 import CartNavigator from '../CartNavigator/CartNavigator';
+import { useAppSelector } from '../../hooks';
 
 const Tab = createBottomTabNavigator<BottomParamsList>();
 
 const BottomNavigator = () => {
   const [brand, gray] = useToken('colors', ['brand', 'gray']);
+
+  const cart = useAppSelector((state) => state.userState.cart);
 
   return (
     <Tab.Navigator
@@ -71,6 +74,7 @@ const BottomNavigator = () => {
                 iconColor="white"
                 bgColor="black"
                 routeDestination={route.name}
+                badgeNumber={cart.items.length}
               />
             );
           return (

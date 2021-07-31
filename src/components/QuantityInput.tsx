@@ -27,7 +27,15 @@ const QuantityInput: React.FC<Props> = ({ start = 0, step = 1, min = 0, max = 10
   };
 
   return (
-    <HStack alignItems="center" border={1} borderColor="gray.400" paddingX={2.5} borderRadius={999} style={style}>
+    <HStack
+      alignItems="center"
+      paddingY={0.5}
+      border={1}
+      borderColor="gray.400"
+      paddingX={2.5}
+      borderRadius={999}
+      style={style}
+    >
       <IconButton
         borderRadius={999}
         w="35px"

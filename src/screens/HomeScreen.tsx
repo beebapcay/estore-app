@@ -7,6 +7,7 @@ import { Category, Product } from '../models';
 import Routes from '../navigations/routes';
 import { useNavigation } from '@react-navigation/native';
 import { CategoryList, ProductList } from '../containers';
+import { loadCartData } from '../redux/slices/userSlice';
 
 const HomeScreen = () => {
   const dispatch = useAppDispatch();
@@ -33,16 +34,19 @@ const HomeScreen = () => {
     else setFilterProducts(products?.filter((item) => item?.category === category?.title));
   }, [category]);
 
+  // Loading Data
   useEffect(() => {
     (async () => {
-      const result = await dispatch(fetchShoppingData());
-      if (fetchShoppingData.fulfilled.match(result)) {
-        const categories = result.payload?.categories;
-        const products = result.payload?.products;
+      const responseFetching = await dispatch(fetchShoppingData());
+      if (fetchShoppingData.fulfilled.match(responseFetching)) {
+        const categories = responseFetching.payload?.categories;
+        const products = responseFetching.payload?.products;
 
         if (categories.length) setCategory(categories[0]);
         setFilterProducts(products);
       }
+
+      await dispatch(loadCartData());
     })();
   }, []);
 

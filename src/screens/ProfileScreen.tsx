@@ -1,14 +1,11 @@
 import React from 'react';
 import { Center, Text } from 'native-base';
-import { NBSafeAreaView } from '../components';
 
 const ProfileScreen = () => {
   return (
-    <NBSafeAreaView flex={1} bgColor="background">
-      <Center flex={1}>
-        <Text>Profile Screen</Text>
-      </Center>
-    </NBSafeAreaView>
+    <Center flex={1} bgColor="background">
+      <Text>Profile Screen</Text>
+    </Center>
   );
 };
 
