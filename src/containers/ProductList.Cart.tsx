@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { FlatList, Box, Heading } from 'native-base';
+import React from 'react';
+import { FlatList, Heading } from 'native-base';
 import { ProductCart } from '../models';
 import { ProductCardCart } from '../components';
 import { StyleProp, ViewStyle } from 'react-native';

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { VStack, Icon, IconButton, Input, Text } from 'native-base';
+import { VStack, Icon, IconButton, Input } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 import { StyleProp, ViewStyle } from 'react-native';
 
@@ -14,6 +14,10 @@ interface Props {
 
 const QuantityInputCart: React.FC<Props> = ({ start = 0, step = 1, min = 0, max = 100, onChange, style }) => {
   const [quantity, setQuantity] = useState(start);
+
+  useEffect(() => {
+    setQuantity(start);
+  }, [start]);
 
   const onIncrease = () => {
     if (quantity < max) {

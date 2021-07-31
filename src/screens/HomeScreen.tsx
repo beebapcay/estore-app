@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Heading, Spinner, Center } from 'native-base';
-import { SearchBox, VirtualizedList } from '../components';
+import { SearchBox } from '../components';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { fetchShoppingData } from '../redux/slices';
 import { Category, Product } from '../models';
@@ -8,13 +8,12 @@ import Routes from '../navigations/routes';
 import { useNavigation } from '@react-navigation/native';
 import { CategoryList, ProductList } from '../containers';
 import { loadCartData } from '../redux/slices/userSlice';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const HomeScreen = () => {
   const dispatch = useAppDispatch();
 
   const { categories, products } = useAppSelector((state) => state.shoppingState?.shoppingData);
-  const cart = useAppSelector((state) => state.userState.cart);
 
   const [filterProducts, setFilterProducts] = useState<Product[]>([]);
 

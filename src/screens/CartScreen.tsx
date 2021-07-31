@@ -7,8 +7,7 @@ import { ProductListCart } from '../containers';
 import { Product, ProductCart } from '../models';
 import Routes from '../navigations/routes';
 import { Ionicons } from '@expo/vector-icons';
-import { userActions, loadCartData } from '../redux/slices';
-import { useFocusEffect } from '@react-navigation/native';
+import { userActions } from '../redux/slices';
 
 const CartScreen = () => {
   const cart = useAppSelector((state) => state.userState.cart);
