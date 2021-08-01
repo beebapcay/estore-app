@@ -26,20 +26,24 @@ const HomeScreen = () => {
   const navigation = useNavigation();
 
   const [searchKeyword, setSearchKeyword] = useState('');
+  const [category, setCategory] = useState<Category>({} as Category);
   useEffect(() => {
     let filterList;
     if (category?.title === 'All') filterList = products;
     else filterList = products?.filter((item) => item?.category === category?.title);
     setFilterProducts(
-      filterList?.filter((item) => item?.name.includes(searchKeyword) || item?.category.includes(searchKeyword))
+      filterList?.filter(
+        (item) =>
+          item?.name.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+          item?.category.toLowerCase().includes(searchKeyword.toLowerCase())
+      )
     );
-  }, [searchKeyword]);
+  }, [searchKeyword, category]);
 
-  const [category, setCategory] = useState<Category>({} as Category);
-  useEffect(() => {
-    if (category?.title === 'All') setFilterProducts(products);
-    else setFilterProducts(products?.filter((item) => item?.category === category?.title));
-  }, [category]);
+  // useEffect(() => {
+  //   if (category?.title === 'All') setFilterProducts(products);
+  //   else setFilterProducts(products?.filter((item) => item?.category === category?.title));
+  // }, [category]);
 
   // Loading Data
   useEffect(() => {
@@ -53,7 +57,7 @@ const HomeScreen = () => {
       //   setFilterProducts(products);
       // }
 
-      await AsyncStorage.clear();
+      // await AsyncStorage.clear();
       await dispatch(loadCartData());
     })();
   }, []);

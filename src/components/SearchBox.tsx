@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HStack, IconButton, Input, Icon, Center } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 import { StyleProp, ViewStyle, Keyboard } from 'react-native';
@@ -13,6 +13,10 @@ interface Props {
 
 const SearchBox: React.FC<Props> = ({ onEndEditing, onTouch, autoFocus, onChange, style }) => {
   const [keyword, setKeyword] = useState('');
+
+  useEffect(() => {
+    setTimeout(() => onChange(keyword), 1500);
+  }, [keyword]);
 
   return (
     <Center bgColor="white" borderRadius={15} paddingX={5} style={style}>
