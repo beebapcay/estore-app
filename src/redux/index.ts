@@ -1,3 +1,5 @@
-import { store, AppState, AppDispatch } from './store';
+import { store } from './store';
+import type { AppState, AppDispatch } from './store';
 
-export { store, AppState, AppDispatch };
+export { store };
+export type { AppState, AppDispatch };
