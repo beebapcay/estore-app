@@ -14,6 +14,12 @@ const HomeScreen = () => {
   const dispatch = useAppDispatch();
 
   const { categories, products } = useAppSelector((state) => state.shoppingState?.shoppingData);
+  useEffect(() => {
+    if (products && categories) {
+      setFilterProducts(products);
+      setCategory(categories[0]);
+    }
+  }, [categories, products]);
 
   const [filterProducts, setFilterProducts] = useState<Product[]>([]);
 
@@ -39,13 +45,13 @@ const HomeScreen = () => {
   useEffect(() => {
     (async () => {
       const responseFetching = await dispatch(fetchShoppingData());
-      if (fetchShoppingData.fulfilled.match(responseFetching)) {
-        const categories = responseFetching.payload?.categories;
-        const products = responseFetching.payload?.products;
+      // if (fetchShoppingData.fulfilled.match(responseFetching)) {
+      //   const categories = responseFetching.payload?.categories;
+      //   const products = responseFetching.payload?.products;
 
-        if (categories.length) setCategory(categories[0]);
-        setFilterProducts(products);
-      }
+      //   if (categories.length) setCategory(categories[0]);
+      //   setFilterProducts(products);
+      // }
 
       // await AsyncStorage.clear();
       await dispatch(loadCartData());
@@ -62,23 +68,23 @@ const HomeScreen = () => {
           </Center>
         ) : (
           <Box flex={1}>
+            <Box>
+              <Heading fontSize={20} color="heading">
+                Category
+              </Heading>
+
+              <CategoryList
+                itemList={categories}
+                onTouchItem={(item: Category) => setCategory(item)}
+                itemSelected={category}
+                style={{ marginTop: 10 }}
+              />
+            </Box>
+
             <ProductList
               itemList={filterProducts}
               onTouchItem={(item: Product) => navigation.navigate(Routes.PRODUCT, { productId: item.id })}
-              header={
-                <Box marginBottom={6}>
-                  <Heading fontSize={20} color="heading">
-                    Category
-                  </Heading>
-
-                  <CategoryList
-                    itemList={categories}
-                    onTouchItem={(item: Category) => setCategory(item)}
-                    itemSelected={category}
-                    style={{ marginTop: 15 }}
-                  />
-                </Box>
-              }
+              style={{ marginTop: 10 }}
             />
           </Box>
         )}

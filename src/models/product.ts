@@ -6,6 +6,7 @@ interface Product {
   stock: number;
   sales: number;
   price: number;
+  date: number;
   motivations: string[];
   image: string;
 }

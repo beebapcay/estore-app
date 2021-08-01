@@ -18,7 +18,7 @@ const theme = extendTheme({
 });
 
 const App = () => {
-  const isAuthorized = true;
+  const isAuthorized = false;
 
   return (
     <Provider store={store}>

@@ -18,7 +18,10 @@ const shoppingSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchShoppingData.fulfilled, (state, actions) => {
-      state.shoppingData = actions.payload;
+      const shoppingData = actions.payload;
+      shoppingData.categories.sort((a, b) => a.order - b.order);
+      shoppingData.products.sort((a, b) => a.date - b.date);
+      state.shoppingData = shoppingData;
     });
   }
 });
