@@ -22,12 +22,6 @@ const CartScreen = () => {
     })();
   }, [cart]);
 
-  // useFocusEffect(() => {
-  //   (async () => {
-  //     await dispatch(loadCartData());
-  //   })();
-  // });
-
   const dispatch = useAppDispatch();
 
   const navigation = useNavigation();

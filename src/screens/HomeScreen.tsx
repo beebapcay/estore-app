@@ -8,7 +8,7 @@ import Routes from '../navigations/routes';
 import { useNavigation } from '@react-navigation/native';
 import { CategoryList, ProductList } from '../containers';
 import { loadCartData } from '../redux/slices/userSlice';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const HomeScreen = () => {
   const dispatch = useAppDispatch();
@@ -44,7 +44,7 @@ const HomeScreen = () => {
   // Loading Data
   useEffect(() => {
     (async () => {
-      const responseFetching = await dispatch(fetchShoppingData());
+      await dispatch(fetchShoppingData());
       // if (fetchShoppingData.fulfilled.match(responseFetching)) {
       //   const categories = responseFetching.payload?.categories;
       //   const products = responseFetching.payload?.products;
@@ -53,7 +53,7 @@ const HomeScreen = () => {
       //   setFilterProducts(products);
       // }
 
-      // await AsyncStorage.clear();
+      await AsyncStorage.clear();
       await dispatch(loadCartData());
     })();
   }, []);

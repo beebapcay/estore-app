@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { UserState, User, Cart, Product } from '../../models';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { sstoreApi } from '../../api';
 
 const initialState: UserState = {
   userData: {} as User,
@@ -22,6 +23,14 @@ export const loadCartData = createAsyncThunk('userState/loadCartData', async () 
   }
 });
 
+export const fetchUserData = createAsyncThunk(
+  'userState/fetchUserData',
+  async ({ username, password }: { username: string; password: string }) => {
+    const response = await sstoreApi.authLogin(username, password);
+    return response.data;
+  }
+);
+
 const userSlice = createSlice({
   name: 'userState',
   initialState,
@@ -41,12 +50,18 @@ const userSlice = createSlice({
       }
       state.cart.subTotalCost += quantity * product.price;
       state.cart.totalCost = state.cart.subTotalCost + state.cart.shipCost;
+    },
+    loginUser: (state, action: PayloadAction<User>) => {
+      state.userData = action.payload;
     }
   },
   extraReducers: (builder) => {
     builder.addCase(loadCartData.fulfilled, (state, action) => {
       state.cart = action.payload;
-      console.log(action.payload);
+      // console.log(action.payload);
+    });
+    builder.addCase(fetchUserData.fulfilled, (state, action) => {
+      state.userData = action.payload;
     });
   }
 });

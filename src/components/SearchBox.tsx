@@ -22,6 +22,7 @@ const SearchBox: React.FC<Props> = ({ onEndEditing, onTouch, autoFocus, onChange
           border={0}
           flex={1}
           fontSize={18}
+          autoCapitalize="none"
           onTouchStart={onTouch}
           autoFocus={autoFocus}
           value={keyword}

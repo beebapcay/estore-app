@@ -1,14 +1,17 @@
+import Product from './product';
+import Order from './order';
 interface User {
   id: string;
-  username: string;
-  password: string;
   firstName: string;
   lastName: string;
-  address: string;
   email: string;
   phone: string;
+  password: string;
   avatar: string;
-  token: string;
+  age: number;
+  gender: string;
+  favourites: Product[];
+  orders: Order[];
 }
 
 export default User;
