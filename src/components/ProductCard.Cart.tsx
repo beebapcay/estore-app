@@ -30,7 +30,7 @@ const CartProductCard: React.FC<Props> = ({ item, onTouch, onChangeQuantity, sty
       style={style}
     >
       <HStack>
-        <Box flex={3.5} bgColor="#00F" borderRadius={10}>
+        <Box flex={3.5} borderRadius={10}>
           <Image source={{ uri: item.image }} alt=" " w="100%" h="100%" resizeMode="cover" borderRadius={10} />
         </Box>
         <Box flex={6.5} justifyContent="center" paddingLeft={3.5}>

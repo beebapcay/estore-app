@@ -6,6 +6,7 @@ import FavouritesScreen from './FavouritesScreen';
 import ProfileScreen from './ProfileScreen';
 import CartScreen from './CartScreen';
 import ProductScreen from './ProductScreen';
+import CheckoutScreen from './CheckoutScreen';
 
 export {
   LoginScreen,
@@ -15,5 +16,6 @@ export {
   FavouritesScreen,
   ProfileScreen,
   CartScreen,
-  ProductScreen
+  ProductScreen,
+  CheckoutScreen
 };

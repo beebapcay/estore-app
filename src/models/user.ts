@@ -1,5 +1,4 @@
 import Product from './product';
-import Order from './order';
 interface User {
   id: string;
   firstName: string;
@@ -11,7 +10,6 @@ interface User {
   age: number;
   gender: string;
   favourites: Product[];
-  orders: Order[];
 }
 
 export default User;

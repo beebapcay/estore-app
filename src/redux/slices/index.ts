@@ -1,4 +1,4 @@
-import userReducer, { userActions, loadCartData } from './userSlice';
+import userReducer, { userActions, loadCartData, fetchUserData } from './userSlice';
 import shoppingReducer, { shoppingActions, fetchShoppingData } from './shoppingSlice';
 
-export { userReducer, userActions, shoppingReducer, shoppingActions, fetchShoppingData, loadCartData };
+export { userReducer, userActions, shoppingReducer, shoppingActions, fetchShoppingData, loadCartData, fetchUserData };

@@ -7,7 +7,7 @@ import AuthNavigator from '../AuthNavigator/AuthNavigator';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAppSelector, useAppDispatch } from '../../hooks';
 import { User } from '../../models';
-import { userActions } from '../../redux/slices';
+import { userActions, fetchUserData } from '../../redux/slices';
 
 const Stack = createStackNavigator<AppParamList>();
 
@@ -20,8 +20,8 @@ const AppNavigator = (props: any) => {
       try {
         const userStr = await AsyncStorage.getItem('@user');
         if (userStr !== null) {
-          const user = JSON.parse(userStr) as User;
-          dispatch(userActions.loginUser(user));
+          const user = JSON.parse(userStr) as { username: string; password: string };
+          dispatch(fetchUserData({ username: user.username, password: user.password }));
         } else dispatch(userActions.loginUser({} as User));
       } catch (error) {
         dispatch(userActions.loginUser({} as User));

@@ -8,6 +8,7 @@ import ProductCard from './ProductCard';
 import QuantityInput from './QuantityInput';
 import ProductCardCart from './ProductCard.Cart';
 import QuantityInputCart from './QuantityInput.Cart';
+import ProductCardCheckout from './ProductCard.Checkout';
 
 export {
   BottomTabItemNormal,
@@ -19,5 +20,6 @@ export {
   ProductCard,
   QuantityInput,
   ProductCardCart,
-  QuantityInputCart
+  QuantityInputCart,
+  ProductCardCheckout
 };

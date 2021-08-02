@@ -16,9 +16,9 @@ export const loadCartData = createAsyncThunk('userState/loadCartData', async () 
       const cart = JSON.parse(cartStr) as Cart;
       return cart;
     }
-    return { items: [], subTotalCost: 0, shipCost: 2.5, totalCost: 0 } as Cart;
+    return { items: [], subTotalCost: 0, shipCost: 2.5, totalCost: 2.5 } as Cart;
   } catch (error) {
-    return { items: [], subTotalCost: 0, shipCost: 2.5, totalCost: 0 } as Cart;
+    return { items: [], subTotalCost: 0, shipCost: 2.5, totalCost: 2.5 } as Cart;
     console.log('Loading Cart Error');
   }
 });
@@ -53,6 +53,9 @@ const userSlice = createSlice({
     },
     loginUser: (state, action: PayloadAction<User>) => {
       state.userData = action.payload;
+    },
+    resetCart: (state) => {
+      state.cart = { items: [], subTotalCost: 0, shipCost: 2.5, totalCost: 2.5 } as Cart;
     }
   },
   extraReducers: (builder) => {

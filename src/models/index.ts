@@ -7,5 +7,6 @@ import ShoppingState from './shoppingState';
 import UserState from './userState';
 import ProductCart from './productCart';
 import Cart from './cart';
+import ProductOrder from './productOrder';
 
-export { Category, Product, User, Motivation, Shopping, ShoppingState, UserState, ProductCart, Cart };
+export { Category, Product, User, Motivation, Shopping, ShoppingState, UserState, ProductCart, Cart, ProductOrder };

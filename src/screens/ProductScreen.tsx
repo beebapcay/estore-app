@@ -81,7 +81,7 @@ const ProductScreen = () => {
             colorScheme="dark"
             bgColor="brand.800"
           >
-            {cart.items.length.toString()}
+            {cart.items?.length?.toString()}
           </Badge>
         </Pressable>
       </HStack>

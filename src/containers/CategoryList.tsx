@@ -30,7 +30,7 @@ const CategoryList: React.FC<Props> = ({ itemList, onTouchItem, itemSelected, he
       keyExtractor={(item: Category, index) => {
         return `${item.id} ${index}`;
       }}
-      istHeaderComponent={header}
+      ListHeaderComponent={header}
       ListFooterComponent={footer}
       style={style}
     />

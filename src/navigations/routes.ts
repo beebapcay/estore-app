@@ -10,7 +10,8 @@ enum Routes {
   CART = 'Cart',
   FAVOURITES = 'Favourites',
   PROFILE = 'Profile',
-  PRODUCT = 'Product'
+  PRODUCT = 'Product',
+  CHECKOUT = 'Checkout'
 }
 
 export default Routes;

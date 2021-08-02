@@ -46,19 +46,19 @@ const CartScreen = () => {
           <Box marginBottom={8} marginTop={1.5}>
             <HStack alignItems="center" justifyContent="space-evenly">
               <HStack alignItems="center">
-                <Text color="gray.600" fontSize={19} bold>
+                <Text color="gray.600" fontSize={16} bold>
                   Subtotal:
                 </Text>
-                <Text color="#363B64" fontSize={18} bold marginLeft={2}>
+                <Text color="#363B64" fontSize={17} bold marginLeft={2}>
                   ${cart.subTotalCost}
                 </Text>
               </HStack>
 
               <HStack alignItems="center">
-                <Text color="gray.600" fontSize={19} bold>
+                <Text color="gray.600" fontSize={16} bold>
                   Shipping:
                 </Text>
-                <Text color="#363B64" fontSize={18} bold marginLeft={2}>
+                <Text color="#363B64" fontSize={17} bold marginLeft={2}>
                   ${cart.shipCost}
                 </Text>
               </HStack>
@@ -91,8 +91,11 @@ const CartScreen = () => {
                 bgColor="#363B64"
                 _text={{ fontWeight: 'bold', fontSize: 18 }}
                 alignSelf="center"
+                disabled={cart.items.length === 0}
                 startIcon={<Icon as={Ionicons} name="ios-exit-outline" size={7} marginLeft={1.5} />}
                 _pressed={{ backgroundColor: '#2e3254' }}
+                _disabled={{ backgroundColor: '#42455f' }}
+                onPress={() => navigation.navigate(Routes.CHECKOUT)}
               >
                 Check Out
               </Button>
