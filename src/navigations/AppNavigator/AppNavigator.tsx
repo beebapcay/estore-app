@@ -21,7 +21,20 @@ const AppNavigator = (props: any) => {
         const userStr = await AsyncStorage.getItem('@user');
         if (userStr !== null) {
           const user = JSON.parse(userStr) as { username: string; password: string };
-          dispatch(fetchUserData({ username: user.username, password: user.password }));
+          dispatch(
+            userActions.loginUser({
+              id: '',
+              firstName: '',
+              lastName: '',
+              gender: '',
+              age: 0,
+              phone: user.username,
+              email: '',
+              password: user.password,
+              avatar: '',
+              favourites: []
+            })
+          );
         } else dispatch(userActions.loginUser({} as User));
       } catch (error) {
         dispatch(userActions.loginUser({} as User));

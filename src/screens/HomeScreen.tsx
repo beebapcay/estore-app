@@ -2,18 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { Box, Heading, Spinner, Center } from 'native-base';
 import { SearchBox } from '../components';
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { fetchShoppingData } from '../redux/slices';
+import { fetchShoppingData, fetchUserData } from '../redux/slices';
 import { Category, Product } from '../models';
 import Routes from '../navigations/routes';
 import { useNavigation } from '@react-navigation/native';
 import { CategoryList, ProductList } from '../containers';
 import { loadCartData } from '../redux/slices/userSlice';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const HomeScreen = () => {
   const dispatch = useAppDispatch();
 
   const { categories, products } = useAppSelector((state) => state.shoppingState?.shoppingData);
+  const user = useAppSelector((state) => state.userState.userData);
+  console.log(user);
+
   useEffect(() => {
     if (products && categories) {
       setFilterProducts(products);
@@ -58,6 +61,7 @@ const HomeScreen = () => {
       // }
 
       // await AsyncStorage.clear();
+      await dispatch(fetchUserData({ username: user.phone, password: user.password }));
       await dispatch(loadCartData());
     })();
   }, []);

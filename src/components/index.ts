@@ -9,6 +9,9 @@ import QuantityInput from './QuantityInput';
 import ProductCardCart from './ProductCard.Cart';
 import QuantityInputCart from './QuantityInput.Cart';
 import ProductCardCheckout from './ProductCard.Checkout';
+import ProductCardMotivationNew from './ProductCard.Motivation.New';
+import ProductCardMotivationBestSeller from './ProductCard.Motivation.BestSeller';
+import ProductCardMotivationTrend from './ProductCard.Motivation.Trend';
 
 export {
   BottomTabItemNormal,
@@ -21,5 +24,8 @@ export {
   QuantityInput,
   ProductCardCart,
   QuantityInputCart,
-  ProductCardCheckout
+  ProductCardCheckout,
+  ProductCardMotivationNew,
+  ProductCardMotivationBestSeller,
+  ProductCardMotivationTrend
 };
